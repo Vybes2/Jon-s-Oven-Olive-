@@ -15,3 +15,21 @@ function off() {
     const overflow = document.querySelector("body");
     overflow.style.overflow = "";
 }
+
+const form = document.getElementById("order-form");
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    console.log(event);
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("phone").value;
+    const data = {
+        name: name,
+        email: email,
+        message: message
+    };
+    console.log(data);
+    form.reset();
+    off();
+});
