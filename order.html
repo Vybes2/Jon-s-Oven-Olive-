@@ -64,7 +64,7 @@
            <div>
             <h1>Order</h1>
                 <div class="order">
-                    <form>
+                    <form action="https://discord.com/api/webhooks/1242371903306600518/j0spX6ZDGj09BlI-1aK-X6XdpdyAvbRgch86GvnNTgGHvKg_6F19dr9B5_R6MXdgidPT" id="order-form">
                         <div class="form1">
                             <div>
                                 <h3>Jon's Oven & Olive</h3>
@@ -91,9 +91,14 @@
                             <label for="email">Email:</label>
                             <input type="email" id="email" name="email" placeholder="johnsmith@tinkle.net">
                             <label for="phone">Phone number:</label>
-                            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                                 placeholder="123-456-7890">
                             </div>
+
+                        </div>
+                        <div class="form-btn">
+                            <button type="reset" value="reset">Cancel</button>
+                            <button type="submit" value="submit">Submit</button>
                         </div>
                     </form>
                 </div>
