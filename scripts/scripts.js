@@ -16,20 +16,29 @@ function off() {
     overflow.style.overflow = "";
 }
 
-const form = document.getElementById("order-form");
+function orderSubmit() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
 
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    console.log(event);
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("phone").value;
-    const data = {
-        name: name,
-        email: email,
-        message: message
+    const webhook = "https://discord.com/api/webhooks/1242371903306600518/j0spX6ZDGj09BlI-1aK-X6XdpdyAvbRgch86GvnNTgGHvKg_6F19dr9B5_R6MXdgidPT";
+
+    const contents = {
+        "content": "New Order From " + name,
+        "embeds": [
+            {
+                "title": "Order Details",
+                "description": "Name: " + name + "\nEmail: " + email + "\nPhone: " + phone,
+                "color": 16711680
+            }
+        ]
     };
-    console.log(data);
-    form.reset();
-    off();
-});
+
+    const request = new XMLHttpRequest();
+    request.open("POST", webhook);
+    request.setRequestHeader('Content-type', 'application/json');
+    const params = {
+        content: contents
+    }
+    request.send(JSON.stringify(params));
+}
