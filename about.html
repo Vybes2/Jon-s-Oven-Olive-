@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Jon's Oven & Olive">
+        <meta name="keywords" content="Jon's Oven & Olive, Jon's, Oven, Olive, Pizza, Pasta, Italian, Italian Cuisine, Italian Food, Italian Restaurant, Restaurant, Food, Italian Food, Italian Restaurant, Restaurant, Food">
+        <meta name="author" content="Otto Jon">
+        <title>About</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="styles/styles.css" rel="stylesheet">
+        <!-- Font Awesome cdn-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="scripts/scripts.js" defer></script>
+    </head>
+        
+        <body>
+            <!-- overlay for mobile -->
+            <div id="overlay">
+                <div>
+                    <i class="fa fa-times" title="button to close mobile navigation" onclick="off()"></i>
+                </div>
+                <div class="overlay-text">
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="about.html">About</a>
+                    <a href="order.html" class="order-nav">Order</a>
+                </div>
+        
+            </div>
+            <header>
+                <nav class="nav full-nav">
+                    <div>
+                        <img src="images/pizza_logo.jpg" alt="jons logo" style="width: 3.5rem;" loading="lazy">
+                    </div>
+                    <div>
+                        <a href="index.html">Home</a>
+                        <a href="menu.html">Menu</a>
+                        <a href="about.html">About</a>
+                        <a href="order.html" class="order-nav">Order</a>
+                    </div>
+                </nav>
+        
+                <!-- mobile -->
+                <nav class="nav mobile-nav">
+                    <div>
+                        <img src="images/pizza_logo.jpg" alt="jons logo" style="width: 1.5rem;">
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-bars" title="button to open navigation" onclick="on()"></i>
+                    </div>
+                </nav>
+            </header>
+
+        <main>
+            <div class="red-spacer"></div>
+
+            <!-- about-->
+            <div>
+                <h1>About Jon's</h1>
+                <div class="about"> <!-- to change to otto jon-->
+                    <img src="images/hot_pepperoni_pizza.png" alt="otto jon" loading="lazy" style="width: 85%;">
+                    <div class="about-child2">
+                    <div>
+                        <h2>Our Mission</h2>
+                        <p>
+                            We do not only prioritize immediate concerns, but also prioritize being extremely inviting, friendly, proactive, honest, responsive, and going the extra mile for ensured satisfaction. Our love for our craft equates to our love for the ones who support us; You are a partner, not just a customer.
+                        </p>
+                        <a href="order.html">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        <footer>
+
+            <div>
+            <img src="images/pizza_logo.jpg" alt="jons logo" style="width: 10%;">
+            </div>
+                    <div>
+                        <div>
+                            <a href="index.html">Home</a>
+                            <a href="menu.html">Menu</a>
+                            <a href="about.html">About</a>
+                            <a href="order.html" class="order-nav">Order</a>
+                        </div>
+                    <div>
+                        <h4>Copyright 2024 Jon's Oven & Olive</h4>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/pizza_logo.jpg" alt="jons logo" style="width: 10%;">
+                </div>
+        </footer>
+</body>
+</html>
