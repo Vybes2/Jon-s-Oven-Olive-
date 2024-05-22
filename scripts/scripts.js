@@ -69,3 +69,5 @@ function submit(event) {
     });
 }
 
+console.log(submit())
+
