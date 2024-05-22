@@ -16,7 +16,7 @@ function off() {
     overflow.style.overflow = "";
 }
 
-function sendWebhook(event) {
+function submit(event) {
     event.preventDefault();
 
 
