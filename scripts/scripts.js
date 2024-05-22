@@ -26,7 +26,7 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
     const dateTime = new Date().toLocaleString();
 
     const contents = {
-        content: `New Order From ${name} at ${dateTime}`,
+        content: `New Order From ${name}  ${"<@&1242651341235683458>"}`,
         embeds: [
             {
                 title: "Order Details",
