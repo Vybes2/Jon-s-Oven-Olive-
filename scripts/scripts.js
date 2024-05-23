@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function addItemToCart(title, price, quantity) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         const pickup = document.getElementById('delivery').checked;
-        const deliveryFee = pickup ? 25 : 0; // Assuming a delivery fee of $5 when pickup is selected
+        const deliveryFee = pickup ? 1.25 : 1.0; // Assuming a delivery fee of $5 when pickup is selected
     
         const totalPrice = (parseFloat(price) + deliveryFee) * quantity; // Calculate total price including delivery fee
     
@@ -189,18 +189,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCartTotal() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        let deliveryFee = 0;
+        let deliveryFee = 1.0;
     
 
         // Check if pickup option is selected
         const pickup = document.getElementById('delivery').checked;
         if (pickup) {
             // Add your delivery fee amount here
-            deliveryFee = 25; // Example delivery fee of $5
+            deliveryFee = 1.25; // Example delivery fee of $5
         }
     
         // Calculate total including delivery fee
-        const totalPrice = total + deliveryFee;
+        const totalPrice = total * deliveryFee;
     
         // Update total price display
         
