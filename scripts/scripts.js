@@ -28,7 +28,8 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
     const dineIn = document.getElementById("dine-in").checked;
     const orderType = pickup ? "Pickup" : dineIn ? "Dine-In" : delivery ? "Delivery" : "Not specified";
     const dateTime = new Date().toLocaleString();
-    const order = window.localStorage.getItem('cart');
+    const title = localStorage.setItem('cart', "title");
+ 
 
     const contents = {
         content: `New Order From ${name}  ${"<@&1242651341235683458>"}`,
@@ -42,7 +43,7 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
                     { name: 'Phone Number', value: phone },
                     { name: 'Message', value: senderMessage },
                     { name: 'Date and Time', value: dateTime },
-                    {name : 'Order', value: order},
+                    {name : 'Order', value: title},
                 ],
             }
         ]
@@ -69,34 +70,6 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
         console.error('Error:', error);
         alert('An unknown error occurred on the server.');
     });
-});
-
-
-document.getElementById('orderForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const items = window.localStorage.getItem('cart.title');
-
-    const contents = {
-        embeds: [
-            {
-                title: "Order Contents",
-                fields: [
-                    { name: 'Order Items', value: order },
-                ],
-            }
-        ]
-    };
-
-    const webhookUrl = 'https://discord.com/api/webhooks/1242371903306600518/j0spX6ZDGj09BlI-1aK-X6XdpdyAvbRgch86GvnNTgGHvKg_6F19dr9B5_R6MXdgidPT';
-
-    fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(contents)
-    })
 });
 
 
