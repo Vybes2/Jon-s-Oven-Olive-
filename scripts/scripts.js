@@ -16,8 +16,33 @@ function off() {
     overflow.style.overflow = "";
 }
 
+
 document.getElementById('orderForm').addEventListener('submit', function(event) {
     event.preventDefault();
+    
+    // Retrieve cart items from local storage
+    const order = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Initialize arrays to store titles and quantities, and a variable for total price
+    const titles = [];
+    const quantities = [];
+    let totalPrice = 0;
+
+    const titleQuantityPairs = [];
+
+    order.forEach(item => {
+        titleQuantityPairs.push(`${item.title} (Quantity: ${item.quantity})`);
+    });
+
+    const titlesWithQuantityPairs = titleQuantityPairs.join(', ');
+
+    // Loop through each item in the cart
+    order.forEach(item => {
+        // Extract title and quantity for each item and accumulate total price
+        titles.push(item.title);
+        quantities.push(item.quantity);
+        totalPrice += item.totalPrice;
+    });
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -28,21 +53,29 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
     const dineIn = document.getElementById("dine-in").checked;
     const orderType = pickup ? "Pickup" : dineIn ? "Dine-In" : delivery ? "Delivery" : "Not specified";
     const dateTime = new Date().toLocaleString();
-    const order = window.localStorage.getItem('cart');
+
+    const title = order.length > 0 ? order[0].title : "No items in cart";
+
 
     const contents = {
         content: `New Order From ${name}  ${"<@&1242651341235683458>"}`,
         embeds: [
             {
-                title: "Order Details",
+                title: "__**Order Details**__",
                 fields: [
                     { name: 'Order Type', value: orderType },
                     { name: 'Name', value: name },
                     { name: 'Email', value: email },
                     { name: 'Phone Number', value: phone },
                     { name: 'Message', value: senderMessage },
+                    { name: '\u200B', value: '**__Receipt__**' },
+                    { name: '', value: '' },
+                    { name: 'Order Titles', value: titlesWithQuantityPairs }, // Join titles array into a string
+                    { name: '', value: '' },// Join quantities array into a string
+                    { name: '', value: '' },
+                    { name: 'Total Price', value: `$${totalPrice.toFixed(2)}` }, // Display total price formatted to 2 decimal places
+                    { name: '', value: '' },
                     { name: 'Date and Time', value: dateTime },
-                    {name : 'Order', value: order},
                 ],
             }
         ]
@@ -72,32 +105,8 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
 });
 
 
-document.getElementById('orderForm').addEventListener('submit', function(event) {
-    event.preventDefault();
 
-    const items = window.localStorage.getItem('cart.title');
 
-    const contents = {
-        embeds: [
-            {
-                title: "Order Contents",
-                fields: [
-                    { name: 'Order Items', value: order },
-                ],
-            }
-        ]
-    };
-
-    const webhookUrl = 'https://discord.com/api/webhooks/1242371903306600518/j0spX6ZDGj09BlI-1aK-X6XdpdyAvbRgch86GvnNTgGHvKg_6F19dr9B5_R6MXdgidPT';
-
-    fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(contents)
-    })
-});
 
 
 
