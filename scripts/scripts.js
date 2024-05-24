@@ -92,7 +92,7 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
     })
     .then(response => {
         if (response.ok) {
-            alert('Message sent successfully');
+            alert('Order sent successfully!');
             window.location.href = 'order.html';
         } else {
             alert('An unknown error occurred on the server.');
