@@ -34,7 +34,7 @@ document.getElementById('reservationForm').addEventListener('submit', function(e
     })
     .then(response => {
         if (response.ok) {
-            alert('Message sent successfully');
+            alert('Reservation booked successfully');
             window.location.href = 'order.html';
         } else {
             alert('An unknown error occurred on the server.');
